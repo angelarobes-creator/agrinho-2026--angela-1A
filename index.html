@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="pt-BR" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verde Safra</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&amp;family=Source+Sans+3:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    html, body { height: 100%; margin: 0; }
+    .font-heading { font-family: 'Playfair Display', serif; }
+    .font-body { font-family: 'Source Sans 3', sans-serif; }
+    .hero-pattern {
+      background-image: 
+        radial-gradient(ellipse at 20% 50%, rgba(34,139,34,0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(218,165,32,0.1) 0%, transparent 40%),
+        linear-gradient(180deg, #1a2e1a 0%, #0f1f0f 100%);
+    }
+    .card-hover { transition: transform 0.3s, box-shadow 0.3s; }
+    .card-hover:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+    .anim-1 { animation: fadeUp 0.8s ease forwards; }
+    .anim-2 { animation: fadeUp 0.8s 0.2s ease forwards; opacity:0; }
+    .anim-3 { animation: fadeUp 0.8s 0.4s ease forwards; opacity:0; }
+    .anim-4 { animation: fadeUp 0.8s 0.6s ease forwards; opacity:0; }
+    .stat-bar { transition: width 1.5s ease; }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ <script src="/_sdk/telemetry_sdk.js"></script></head>
+ <body class="h-full font-body overflow-auto">
+  <div id="app" class="w-full min-h-full" style="background:#0f1f0f;"><!-- Nav -->
+   <nav class="fixed top-0 w-full z-50 backdrop-blur-md" style="background:rgba(15,31,15,0.9); border-bottom:1px solid rgba(34,139,34,0.3);">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+     <div class="flex items-center gap-2">
+      <div class="w-8 h-8 rounded-full flex items-center justify-center" style="background:#228B22;"><i data-lucide="leaf" style="width:18px;height:18px;color:#f5f0e0;"></i>
+      </div><span id="nav-title" class="font-heading text-xl" style="color:#DAA520;">Verde Safra</span>
+     </div>
+     <div class="hidden md:flex gap-6 text-sm" style="color:#a8c5a8;"><a href="#sobre" class="hover:text-white transition">Sobre</a> <a href="#producao" class="hover:text-white transition">Produção</a> <a href="#dados" class="hover:text-white transition">Dados</a> <a href="#sustentabilidade" class="hover:text-white transition">Sustentabilidade</a>
+     </div>
+    </div>
+   </nav><!-- Hero -->
+   <section class="hero-pattern w-full pt-32 pb-24 px-6">
+    <div class="max-w-5xl mx-auto text-center">
+     <p class="anim-1 text-sm uppercase tracking-[4px] mb-4" style="color:#228B22;">Produção de Cana-de-Açúcar</p>
+     <h1 id="hero-heading" class="anim-2 font-heading text-4xl md:text-6xl lg:text-7xl leading-tight mb-6" style="color:#f5f0e0;">Agro Forte, Futuro<br>
+      Sustentável</h1>
+     <p id="hero-subtitle" class="anim-3 text-lg md:text-xl max-w-2xl mx-auto mb-10" style="color:#a8c5a8;">Equilíbrio entre produção e meio ambiente na cadeia da cana-de-açúcar brasileira</p><a href="#sobre" class="anim-4 inline-flex items-center gap-2 px-8 py-3 rounded-full font-semibold transition hover:scale-105" style="background:#228B22; color:#f5f0e0;"> Explorar <i data-lucide="arrow-down" style="width:16px;height:16px;"></i> </a>
+    </div>
+   </section><!-- Sobre -->
+   <section id="sobre" class="w-full py-20 px-6" style="background:#142814;">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+     <div>
+      <h2 class="font-heading text-3xl md:text-4xl mb-6" style="color:#DAA520;">Por que Cana-de-Açúcar?</h2>
+      <p class="text-base leading-relaxed mb-4" style="color:#c8d8c8;">O Brasil é o maior produtor mundial de cana-de-açúcar, responsável por mais de 40% da produção global. A cana é fonte de açúcar, etanol, bioeletricidade e bioplásticos — uma cultura versátil e renovável.</p>
+      <p class="text-base leading-relaxed" style="color:#c8d8c8;">Com práticas sustentáveis, é possível manter a alta produtividade e ao mesmo tempo preservar os recursos naturais para as futuras gerações.</p>
+     </div>
+     <div class="grid grid-cols-2 gap-4">
+      <div class="p-6 rounded-xl text-center card-hover" style="background:rgba(34,139,34,0.15); border:1px solid rgba(34,139,34,0.3);"><i data-lucide="droplets" style="width:32px;height:32px;color:#228B22;margin:0 auto 8px;display:block;"></i>
+       <p class="text-2xl font-bold" style="color:#f5f0e0;">70%</p>
+       <p class="text-xs mt-1" style="color:#a8c5a8;">Menos água que arroz irrigado</p>
+      </div>
+      <div class="p-6 rounded-xl text-center card-hover" style="background:rgba(34,139,34,0.15); border:1px solid rgba(34,139,34,0.3);"><i data-lucide="recycle" style="width:32px;height:32px;color:#228B22;margin:0 auto 8px;display:block;"></i>
+       <p class="text-2xl font-bold" style="color:#f5f0e0;">100%</p>
+       <p class="text-xs mt-1" style="color:#a8c5a8;">Aproveitamento da planta</p>
+      </div>
+      <div class="p-6 rounded-xl text-center card-hover" style="background:rgba(34,139,34,0.15); border:1px solid rgba(34,139,34,0.3);"><i data-lucide="zap" style="width:32px;height:32px;color:#DAA520;margin:0 auto 8px;display:block;"></i>
+       <p class="text-2xl font-bold" style="color:#f5f0e0;">8x</p>
+       <p class="text-xs mt-1" style="color:#a8c5a8;">Mais energia que consome</p>
+      </div>
+      <div class="p-6 rounded-xl text-center card-hover" style="background:rgba(34,139,34,0.15); border:1px solid rgba(34,139,34,0.3);"><i data-lucide="sprout" style="width:32px;height:32px;color:#DAA520;margin:0 auto 8px;display:block;"></i>
+       <p class="text-2xl font-bold" style="color:#f5f0e0;">5 anos</p>
+       <p class="text-xs mt-1" style="color:#a8c5a8;">Ciclo de colheita renovável</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- Produção -->
+   <section id="producao" class="w-full py-20 px-6" style="background:#0f1f0f;">
+    <div class="max-w-5xl mx-auto">
+     <h2 class="font-heading text-3xl md:text-4xl text-center mb-4" style="color:#DAA520;">Ciclo de Produção</h2>
+     <p class="text-center mb-14 max-w-xl mx-auto" style="color:#a8c5a8;">Da plantação ao produto final, cada etapa integra práticas sustentáveis</p>
+     <div class="grid md:grid-cols-4 gap-6">
+      <div class="p-6 rounded-xl card-hover" style="background:#1a2e1a; border:1px solid rgba(34,139,34,0.2);">
+       <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style="background:rgba(218,165,32,0.2);"><i data-lucide="shovel" style="width:20px;height:20px;color:#DAA520;"></i>
+       </div>
+       <h3 class="font-semibold mb-2" style="color:#f5f0e0;">1. Preparo do Solo</h3>
+       <p class="text-sm" style="color:#a8c5a8;">Análise e correção do solo com uso de vinhaça e torta de filtro como fertilizantes orgânicos.</p>
+      </div>
+      <div class="p-6 rounded-xl card-hover" style="background:#1a2e1a; border:1px solid rgba(34,139,34,0.2);">
+       <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style="background:rgba(34,139,34,0.2);"><i data-lucide="sun" style="width:20px;height:20px;color:#228B22;"></i>
+       </div>
+       <h3 class="font-semibold mb-2" style="color:#f5f0e0;">2. Crescimento</h3>
+       <p class="text-sm" style="color:#a8c5a8;">12 a 18 meses de crescimento com monitoramento por drones e sensores de umidade.</p>
+      </div>
+      <div class="p-6 rounded-xl card-hover" style="background:#1a2e1a; border:1px solid rgba(34,139,34,0.2);">
+       <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style="background:rgba(218,165,32,0.2);"><i data-lucide="scissors" style="width:20px;height:20px;color:#DAA520;"></i>
+       </div>
+       <h3 class="font-semibold mb-2" style="color:#f5f0e0;">3. Colheita</h3>
+       <p class="text-sm" style="color:#a8c5a8;">Colheita mecanizada sem queimadas, preservando a palhada no solo para proteção.</p>
+      </div>
+      <div class="p-6 rounded-xl card-hover" style="background:#1a2e1a; border:1px solid rgba(34,139,34,0.2);">
+       <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style="background:rgba(34,139,34,0.2);"><i data-lucide="factory" style="width:20px;height:20px;color:#228B22;"></i>
+       </div>
+       <h3 class="font-semibold mb-2" style="color:#f5f0e0;">4. Processamento</h3>
+       <p class="text-sm" style="color:#a8c5a8;">Produção de açúcar, etanol e bioeletricidade com resíduo zero na usina.</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- Dados -->
+   <section id="dados" class="w-full py-20 px-6" style="background:#142814;">
+    <div class="max-w-4xl mx-auto">
+     <h2 class="font-heading text-3xl md:text-4xl text-center mb-12" style="color:#DAA520;">Brasil em Números</h2>
+     <div class="space-y-8">
+      <div>
+       <div class="flex justify-between mb-2"><span style="color:#f5f0e0;">Produção Nacional (milhões ton/ano)</span> <span class="font-bold" style="color:#228B22;">620</span>
+       </div>
+       <div class="w-full h-3 rounded-full" style="background:rgba(34,139,34,0.2);">
+        <div class="stat-bar h-full rounded-full" style="width:85%;background:linear-gradient(90deg,#228B22,#32CD32);"></div>
+       </div>
+      </div>
+      <div>
+       <div class="flex justify-between mb-2"><span style="color:#f5f0e0;">Área plantada (milhões ha)</span> <span class="font-bold" style="color:#228B22;">8.4</span>
+       </div>
+       <div class="w-full h-3 rounded-full" style="background:rgba(34,139,34,0.2);">
+        <div class="stat-bar h-full rounded-full" style="width:60%;background:linear-gradient(90deg,#228B22,#32CD32);"></div>
+       </div>
+      </div>
+      <div>
+       <div class="flex justify-between mb-2"><span style="color:#f5f0e0;">Etanol produzido (bilhões litros)</span> <span class="font-bold" style="color:#DAA520;">30</span>
+       </div>
+       <div class="w-full h-3 rounded-full" style="background:rgba(218,165,32,0.15);">
+        <div class="stat-bar h-full rounded-full" style="width:72%;background:linear-gradient(90deg,#DAA520,#FFD700);"></div>
+       </div>
+      </div>
+      <div>
+       <div class="flex justify-between mb-2"><span style="color:#f5f0e0;">Empregos diretos (milhões)</span> <span class="font-bold" style="color:#DAA520;">1.2</span>
+       </div>
+       <div class="w-full h-3 rounded-full" style="background:rgba(218,165,32,0.15);">
+        <div class="stat-bar h-full rounded-full" style="width:45%;background:linear-gradient(90deg,#DAA520,#FFD700);"></div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Sustentabilidade -->
+   <section id="sustentabilidade" class="w-full py-20 px-6" style="background:#0f1f0f;">
+    <div class="max-w-5xl mx-auto">
+     <h2 class="font-heading text-3xl md:text-4xl text-center mb-4" style="color:#DAA520;">Práticas Sustentáveis</h2>
+     <p class="text-center mb-14 max-w-xl mx-auto" style="color:#a8c5a8;">Tecnologia e tradição caminhando juntas pelo equilíbrio ambiental</p>
+     <div class="grid md:grid-cols-3 gap-8">
+      <div class="p-8 rounded-2xl card-hover" style="background:linear-gradient(135deg,#1a2e1a,#0f1f0f); border:1px solid rgba(34,139,34,0.3);"><i data-lucide="trees" style="width:40px;height:40px;color:#228B22;margin-bottom:16px;display:block;"></i>
+       <h3 class="font-heading text-xl mb-3" style="color:#f5f0e0;">Reserva Legal</h3>
+       <p class="text-sm leading-relaxed" style="color:#a8c5a8;">Manutenção de 20% a 35% da propriedade com vegetação nativa, criando corredores ecológicos.</p>
+      </div>
+      <div class="p-8 rounded-2xl card-hover" style="background:linear-gradient(135deg,#1a2e1a,#0f1f0f); border:1px solid rgba(34,139,34,0.3);"><i data-lucide="cloud-rain" style="width:40px;height:40px;color:#228B22;margin-bottom:16px;display:block;"></i>
+       <h3 class="font-heading text-xl mb-3" style="color:#f5f0e0;">Fertirrigação</h3>
+       <p class="text-sm leading-relaxed" style="color:#a8c5a8;">Reuso da vinhaça como fertilizante e irrigação, reduzindo consumo de água em até 50%.</p>
+      </div>
+      <div class="p-8 rounded-2xl card-hover" style="background:linear-gradient(135deg,#1a2e1a,#0f1f0f); border:1px solid rgba(34,139,34,0.3);"><i data-lucide="battery-charging" style="width:40px;height:40px;color:#DAA520;margin-bottom:16px;display:block;"></i>
+       <h3 class="font-heading text-xl mb-3" style="color:#f5f0e0;">Bioenergia</h3>
+       <p class="text-sm leading-relaxed" style="color:#a8c5a8;">O bagaço gera eletricidade suficiente para abastecer a usina e exportar para a rede.</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer class="w-full py-10 px-6" style="background:#0a170a; border-top:1px solid rgba(34,139,34,0.2);">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+     <div class="flex items-center gap-2">
+      <div class="w-6 h-6 rounded-full flex items-center justify-center" style="background:#228B22;"><i data-lucide="leaf" style="width:12px;height:12px;color:#f5f0e0;"></i>
+      </div><span class="font-heading text-sm" style="color:#DAA520;">Verde Safra</span>
+     </div>
+     <p class="text-xs" style="color:#5a7a5a;">© 2024 — Agro Forte, Futuro Sustentável. Produzindo com responsabilidade.</p>
+    </div>
+   </footer>
+  </div>
+  <script>
+    lucide.createIcons();
+
+    const defaultConfig = {
+      site_title: "Verde Safra",
+      hero_heading: "Agro Forte, Futuro Sustentável",
+      hero_subtitle: "Equilíbrio entre produção e meio ambiente na cadeia da cana-de-açúcar brasileira",
+      background_color: "#0f1f0f",
+      surface_color: "#1a2e1a",
+      text_color: "#f5f0e0",
+      primary_action_color: "#228B22",
+      secondary_action_color: "#DAA520",
+      font_family: "Playfair Display",
+      font_size: 16
+    };
+
+    window.elementSdk.init({
+      defaultConfig,
+      onConfigChange: async (config) => {
+        const bg = config.background_color || defaultConfig.background_color;
+        const surface = config.surface_color || defaultConfig.surface_color;
+        const text = config.text_color || defaultConfig.text_color;
+        const primary = config.primary_action_color || defaultConfig.primary_action_color;
+        const secondary = config.secondary_action_color || defaultConfig.secondary_action_color;
+        const font = config.font_family || defaultConfig.font_family;
+        const size = config.font_size || defaultConfig.font_size;
+
+        document.getElementById('app').style.background = bg;
+        document.getElementById('nav-title').style.color = secondary;
+        document.getElementById('nav-title').textContent = config.site_title || defaultConfig.site_title;
+        
+        const heading = document.getElementById('hero-heading');
+        heading.textContent = config.hero_heading || defaultConfig.hero_heading;
+        heading.style.color = text;
+        heading.style.fontFamily = `${font}, serif`;
+        heading.style.fontSize = `${size * 3.5}px`;
+
+        const subtitle = document.getElementById('hero-subtitle');
+        subtitle.textContent = config.hero_subtitle || defaultConfig.hero_subtitle;
+        subtitle.style.color = primary;
+        subtitle.style.fontSize = `${size * 1.2}px`;
+        subtitle.style.fontFamily = `Source Sans 3, ${font}, sans-serif`;
+      },
+      mapToCapabilities: (config) => ({
+        recolorables: [
+          { get: () => config.background_color || defaultConfig.background_color, set: (v) => { config.background_color = v; window.elementSdk.setConfig({ background_color: v }); } },
+          { get: () => config.surface_color || defaultConfig.surface_color, set: (v) => { config.surface_color = v; window.elementSdk.setConfig({ surface_color: v }); } },
+          { get: () => config.text_color || defaultConfig.text_color, set: (v) => { config.text_color = v; window.elementSdk.setConfig({ text_color: v }); } },
+          { get: () => config.primary_action_color || defaultConfig.primary_action_color, set: (v) => { config.primary_action_color = v; window.elementSdk.setConfig({ primary_action_color: v }); } },
+          { get: () => config.secondary_action_color || defaultConfig.secondary_action_color, set: (v) => { config.secondary_action_color = v; window.elementSdk.setConfig({ secondary_action_color: v }); } }
+        ],
+        borderables: [],
+        fontEditable: { get: () => config.font_family || defaultConfig.font_family, set: (v) => { config.font_family = v; window.elementSdk.setConfig({ font_family: v }); } },
+        fontSizeable: { get: () => config.font_size || defaultConfig.font_size, set: (v) => { config.font_size = v; window.elementSdk.setConfig({ font_size: v }); } }
+      }),
+      mapToEditPanelValues: (config) => new Map([
+        ["site_title", config.site_title || defaultConfig.site_title],
+        ["hero_heading", config.hero_heading || defaultConfig.hero_heading],
+        ["hero_subtitle", config.hero_subtitle || defaultConfig.hero_subtitle]
+      ])
+    });
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a057224b3e6d14c3',t:'MTc4MDQxMDM5NQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
